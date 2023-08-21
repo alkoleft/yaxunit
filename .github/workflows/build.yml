@@ -1,0 +1,13 @@
+name: build
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build-lin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: My second step
+      uses: actions/IT-Medved@develop
