@@ -10,4 +10,4 @@ jobs:
       with:
         submodules: recursive
     - name: My second step
-      uses: actions/IT-Medved@develop
+      uses: IT-Medved/setup-onec-build-env-action@develop
