@@ -87,12 +87,20 @@ jobs:
             }
           }
     
+    - name: server answer
+      shell: pwsh
+      run: curl http://localhost:8314
+    
     - name: run tests
       run: 1cv8c.exe /WS "http://localhost:8314" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
       timeout-minutes: 5
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
       
+    - name: server answer2
+      shell: pwsh
+      run: curl http://localhost:8314
+    
     - name: view output
       if: always()
       run: type output.log
