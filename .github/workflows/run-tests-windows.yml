@@ -29,6 +29,10 @@ concurrency:
 jobs:
   execute-tests:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+
     steps:
 
     - name: download artifact
@@ -68,10 +72,13 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - name: run server
-      shell: pwsh
-      run: Start-Process -NoNewWindow ibsrv.exe --data=data
-    
+    - uses: JarvusInnovations/background-action@v1
+      name: run server
+      with:
+        run: Start-Process -NoNewWindow ibsrv.exe --data=data
+        wait-on: |
+          http://localhost:8314
+   
     - name: create test-config
       uses: DamianReeves/write-file-action@master
       with:
@@ -92,7 +99,7 @@ jobs:
       run: curl http://localhost:8314
     
     - name: run tests
-      run: 1cv8c.exe /WS "http://localhost:8314" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
+      run: 1cv8c.exe /WS "http://localhost:8314" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
       timeout-minutes: 5
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
