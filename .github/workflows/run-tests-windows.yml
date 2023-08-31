@@ -88,7 +88,7 @@ jobs:
           }
     
     - name: run tests
-      run: 1cv8c.exe /WS "http://localhost:8314" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
+      run: 1cv8c.exe /WS "http://localhost:8314" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
       timeout-minutes: 5
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
