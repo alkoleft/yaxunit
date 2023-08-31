@@ -67,7 +67,7 @@ jobs:
 
     - name: run server
       shell: pwsh
-      run: Start-Process -NoNewWindow .\ibsrv.exe --db-path=.\file-db
+      run: Start-Process -NoNewWindow ibsrv.exe --db-path=.\file-db
     
     - name: prepare
       run: mkdir reports -p
