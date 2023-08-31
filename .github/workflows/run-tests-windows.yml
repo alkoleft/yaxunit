@@ -70,7 +70,7 @@ jobs:
       run: Start-Process -NoNewWindow ibsrv.exe --db-path=.\file-db
     
     - name: prepare
-      run: mkdir reports -p
+      run: mkdir reports
 
     - name: create test-config
       uses: DamianReeves/write-file-action@master
