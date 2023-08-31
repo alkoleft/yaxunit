@@ -47,31 +47,31 @@ jobs:
         ONEC_PASSWORD: ${{ secrets.ONEC_PASSWORD }}
       timeout-minutes: 10
 
+    - name: prepare
+      run: mkdir data\data
+      
     - name: create IB
-      run: ibcmd.exe infobase create --db-path=file-db --load=binary\configuration.cf --apply --force
+      run: ibcmd.exe infobase create --data=data --load=binary\configuration.cf --apply --force
       timeout-minutes: 5
 
     - name: load yaxunit
       run: |
-        ibcmd.exe infobase config load --db-path=file-db --extension=YAXUNIT --force binary\yaxunit.cfe
-        ibcmd.exe infobase config apply --db-path=file-db --extension=YAXUNIT --force
-        ibcmd.exe infobase config extension update --db-path=file-db --name=YAXUNIT --safe-mode=no --unsafe-action-protection=no
+        ibcmd.exe infobase config load --data=data --extension=YAXUNIT --force binary\yaxunit.cfe
+        ibcmd.exe infobase config apply --data=data --extension=YAXUNIT --force
+        ibcmd.exe infobase config extension update --data=data --name=YAXUNIT --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
     - name: load tests
       run: |
-        ibcmd.exe infobase config load --db-path=file-db --extension=tests --force binary\tests.cfe
-        ibcmd.exe infobase config apply --db-path=file-db --extension=tests --force
-        ibcmd.exe infobase config extension update --db-path=file-db --name=tests --safe-mode=no --unsafe-action-protection=no
+        ibcmd.exe infobase config load --data=data --extension=tests --force binary\tests.cfe
+        ibcmd.exe infobase config apply --data=data --extension=tests --force
+        ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
     - name: run server
       shell: pwsh
-      run: Start-Process -NoNewWindow ibsrv.exe --db-path=.\file-db
+      run: Start-Process -NoNewWindow ibsrv.exe --data=data
     
-    - name: prepare
-      run: mkdir reports
-
     - name: create test-config
       uses: DamianReeves/write-file-action@master
       with:
@@ -79,7 +79,7 @@ jobs:
         contents: |
           {
             "reportFormat": "jUnit",
-            "reportPath": "reports\report.xml",
+            "reportPath": "reports\\report.xml",
             "closeAfterTests": true,
             "exitCode": "exit-code.txt",
             "logging": {
@@ -88,7 +88,7 @@ jobs:
           }
     
     - name: run tests
-      run: 1cv8c.exe /WS "http://localhost:8314" /C"RunUnitTests=${{github.workspace}}\unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out ${{github.workspace}}\output.log
+      run: 1cv8c.exe /WS "http://localhost:8314" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
       timeout-minutes: 5
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
