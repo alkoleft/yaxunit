@@ -42,7 +42,6 @@ jobs:
       with:
         type: onec
         onec_version: ${{ inputs.v8_version }}
-        cache: false
       env: 
         ONEC_USERNAME: ${{ secrets.ONEC_USERNAME }}
         ONEC_PASSWORD: ${{ secrets.ONEC_PASSWORD }}
@@ -67,11 +66,11 @@ jobs:
       timeout-minutes: 5
 
     - name: run server
-      run: ibsrv.exe --db-path=file-db --daemon
+      run: START /B ibsrv.exe --db-path=file-db
     
     - name: prepare
       run: mkdir reports -p
-      
+
     - name: create test-config
       uses: DamianReeves/write-file-action@master
       with:
@@ -95,7 +94,7 @@ jobs:
       
     - name: view output
       if: always()
-      run: cat .\output.log
+      run: type output.log
     
     - name: upload-artifact
       uses: actions/upload-artifact@v3
