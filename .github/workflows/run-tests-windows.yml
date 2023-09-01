@@ -87,7 +87,7 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - run:  Start-Process -NoNewWindow ibsrv.exe --data=data  --port=8081
+    - run:  Start-Process -NoNewWindow ibsrv.exe -ArgumentList "--data=data  --port=8081"
    
     - name: create test-config
       uses: DamianReeves/write-file-action@master
