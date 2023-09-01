@@ -107,7 +107,7 @@ jobs:
     
     - name: server answer
       if: always()
-      run: curl http://localhost:8314
+      run: curl http://localhost:8081
       continue-on-error: true
       
     - name: run tests
@@ -118,7 +118,7 @@ jobs:
       
     - name: server answer2
       if: always()
-      run: curl http://localhost:8314
+      run: curl http://localhost:8081
       continue-on-error: true
       
     - name: view output
