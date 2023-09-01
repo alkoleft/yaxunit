@@ -92,7 +92,7 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - run: echo (Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081" -WorkingDirectory=${{github.workspace}} -PassThru -RedirectStandardOutput logs/ibsrv-output.log -RedirectStandardError logs/ibsrv-error.log)
+    - run: echo (Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081" -WorkingDirectory="${{github.workspace}}" -PassThru -RedirectStandardOutput "${{github.workspace}}\logs\ibsrv-output.log" -RedirectStandardError "${{github.workspace}}\logs\ibsrv-error.log")
    
     - name: create test-config
       uses: DamianReeves/write-file-action@master
@@ -115,7 +115,7 @@ jobs:
       continue-on-error: true
       
     - name: run tests
-      run: 1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs/1cv8c-output.log
+      run: 1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
       timeout-minutes: 5
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
@@ -131,7 +131,7 @@ jobs:
       
     - name: view output
       if: always()
-      run: type logs/1cv8c-output.log
+      run: type logs\1cv8c-output.log
     
     - name: upload-artifact
       uses: actions/upload-artifact@v3
