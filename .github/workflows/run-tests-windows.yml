@@ -54,6 +54,36 @@ jobs:
     - name: prepare
       run: mkdir data\data
       
+    - name: create test-config
+      uses: DamianReeves/write-file-action@master
+      with:
+        path: C:\Program Files\1cv8\conf\logcfg.xml
+        contents: |
+          <?xml version="1.0" encoding="UTF-8"?>
+          <config xmlns="http://v8.1c.ru/v8/tech-log">
+           <dump create="false"/>
+           <log location="D:\a\yaxunit\yaxunit\logs\" history="120">
+            <event>
+             <eq property="name" value="admin"/>
+            </event>
+            <event>
+             <eq property="name" value="conn"/>
+            </event>
+            <event>
+             <eq property="name" value="excp"/>
+            </event>
+            <event>
+             <eq property="name" value="proc"/>
+            </event>
+            <event>
+             <eq property="name" value="qerr"/>
+            </event>
+            <event>
+             <eq property="name" value="scom"/>
+            </event>
+            <property name="all"/>
+           </log>
+          </config>
     - name: create IB
       run: ibcmd.exe infobase create --data=data --load=binary\configuration.cf --apply --force
       timeout-minutes: 5
@@ -72,12 +102,7 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - uses: JarvusInnovations/background-action@v1
-      name: run server
-      with:
-        run: ibsrv.exe --data=data
-        wait-on: |
-          http://localhost:8314
+    - run:  Start-Process -NoNewWindow ibsrv.exe --data=data
    
     - name: create test-config
       uses: DamianReeves/write-file-action@master
@@ -95,7 +120,6 @@ jobs:
           }
     
     - name: server answer
-      shell: pwsh
       if: always()
       run: curl http://localhost:8314
     
@@ -107,7 +131,6 @@ jobs:
       
     - name: server answer2
       if: always()
-      shell: pwsh
       run: curl http://localhost:8314
     
     - name: view output
@@ -120,6 +143,13 @@ jobs:
       with:
         name: Tests report. Windows ${{ inputs.v8_version }} ${{ inputs.locale }}
         path: reports\*.*
+        
+    - name: upload-logs
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: Tech logs. Windows ${{ inputs.v8_version }} ${{ inputs.locale }}
+        path: logs\*.*
         
     - name: Publish Test Report
       uses: mikepenz/action-junit-report@v3
