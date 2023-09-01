@@ -72,10 +72,12 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
+    - run: ibsrv.exe --data=data
+    
     - uses: JarvusInnovations/background-action@v1
       name: run server
       with:
-        run: Start-Process -NoNewWindow ibsrv.exe --data=data
+        run: ibsrv.exe --data=data
         wait-on: |
           http://localhost:8314
    
