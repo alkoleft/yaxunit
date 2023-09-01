@@ -56,7 +56,6 @@ jobs:
       run: |
         mkdir data\data
         mkdir logs
-        mkdir "C:\Program Files\1cv8\${{ inputs.v8_version }}\bin\conf"
       
     - name: create test-config
       uses: DamianReeves/write-file-action@master
