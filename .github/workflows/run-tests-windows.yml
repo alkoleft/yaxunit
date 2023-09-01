@@ -72,7 +72,7 @@ jobs:
           	</log>
           </config> 
  
-    - run: type C:\Program Files\1cv8\${{ inputs.v8_version }}\bin\conf\logcfg.xml
+    - run: type "C:\Program Files\1cv8\${{ inputs.v8_version }}\bin\conf\logcfg.xml"
  
     - name: create IB
       run: ibcmd.exe infobase create --data=data --load=binary\configuration.cf --apply --force
