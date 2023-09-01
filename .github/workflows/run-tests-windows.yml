@@ -59,31 +59,16 @@ jobs:
       with:
         path: C:\Program Files\1cv8\conf\logcfg.xml
         contents: |
-          <?xml version="1.0" encoding="UTF-8"?>
+          <?xml version="1.0"?>
           <config xmlns="http://v8.1c.ru/v8/tech-log">
-           <dump create="false"/>
-           <log location="D:\a\yaxunit\yaxunit\logs\" history="120">
-            <event>
-             <eq property="name" value="admin"/>
-            </event>
-            <event>
-             <eq property="name" value="conn"/>
-            </event>
-            <event>
-             <eq property="name" value="excp"/>
-            </event>
-            <event>
-             <eq property="name" value="proc"/>
-            </event>
-            <event>
-             <eq property="name" value="qerr"/>
-            </event>
-            <event>
-             <eq property="name" value="scom"/>
-            </event>
-            <property name="all"/>
-           </log>
-          </config>
+          	<log location="${{github.workspace}}\Logs" history="48">
+          		<event>
+          		  <ne property="Name" value="" />
+          		</event>
+          		<property name="all" />
+          	</log>
+          </config> 
+ 
     - name: create IB
       run: ibcmd.exe infobase create --data=data --load=binary\configuration.cf --apply --force
       timeout-minutes: 5
@@ -102,7 +87,7 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - run:  Start-Process -NoNewWindow ibsrv.exe --data=data
+    - run:  Start-Process -NoNewWindow ibsrv.exe --data=data  --port=8081
    
     - name: create test-config
       uses: DamianReeves/write-file-action@master
@@ -122,9 +107,10 @@ jobs:
     - name: server answer
       if: always()
       run: curl http://localhost:8314
-    
+      continue-on-error: true
+      
     - name: run tests
-      run: 1cv8c.exe /WS "http://localhost:8314" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
+      run: 1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
       timeout-minutes: 5
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
@@ -132,7 +118,8 @@ jobs:
     - name: server answer2
       if: always()
       run: curl http://localhost:8314
-    
+      continue-on-error: true
+      
     - name: view output
       if: always()
       run: type output.log
@@ -149,7 +136,7 @@ jobs:
       if: always()
       with:
         name: Tech logs. Windows ${{ inputs.v8_version }} ${{ inputs.locale }}
-        path: logs\*.*
+        path: Logs\*.*
         
     - name: Publish Test Report
       uses: mikepenz/action-junit-report@v3
