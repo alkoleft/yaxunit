@@ -72,8 +72,6 @@ jobs:
           	</log>
           </config> 
  
-    - run: type "C:\Program Files\1cv8\${{ inputs.v8_version }}\bin\conf\logcfg.xml"
- 
     - name: create IB
       run: ibcmd.exe infobase create --data=data --load=binary\configuration.cf --apply --force
       timeout-minutes: 5
@@ -92,7 +90,7 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - run: echo (Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081" -WorkingDirectory="${{github.workspace}}" -PassThru -RedirectStandardOutput "${{github.workspace}}\logs\ibsrv-output.log" -RedirectStandardError "${{github.workspace}}\logs\ibsrv-error.log")
+    - run: echo (Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081" -WorkingDirectory "${{github.workspace}}" -PassThru -RedirectStandardOutput "${{github.workspace}}\logs\ibsrv-output.log" -RedirectStandardError "${{github.workspace}}\logs\ibsrv-error.log")
    
     - name: create test-config
       uses: DamianReeves/write-file-action@master
