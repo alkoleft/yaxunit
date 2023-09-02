@@ -113,7 +113,7 @@ jobs:
     - name: Test
       run: |
         Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081"
-        Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log /L ru /VL ru-RU'
+        Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8081" /C"RunUnitTests=unit.json" /L ru /VL ru-RU /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log'
       timeout-minutes: 10
    
     - name: view output
