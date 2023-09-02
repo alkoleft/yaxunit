@@ -42,28 +42,31 @@ jobs:
       timeout-minutes: 10
         
     - name: convert configuration src
-      uses: IT-Medved/onec-edtcli-command-action@feature/init
+      uses: alkoleft/onec-edtcli-command-action@main
       with:
         export: true
         from: fixtures/demo-configuration
         to: export/configuration
-      timeout-minutes: 5
+        timeout: 5
+      timeout-minutes: 10
       
     - name: convert yaxunit src
-      uses: IT-Medved/onec-edtcli-command-action@feature/init
+      uses: alkoleft/onec-edtcli-command-action@main
       with:
         export: true
         from: exts/yaxunit
         to: export/yaxunit
-      timeout-minutes: 5
+        timeout: 5
+      timeout-minutes: 10
       
     - name: convert tests src
-      uses: IT-Medved/onec-edtcli-command-action@feature/init
+      uses: alkoleft/onec-edtcli-command-action@main
       with:
         export: true
         from: tests
         to: export/tests
-      timeout-minutes: 5
+        timeout: 5
+      timeout-minutes: 10
       
     - name: create IB
       run: ibcmd infobase create --db-path=file-db --import=export/configuration --apply --force
