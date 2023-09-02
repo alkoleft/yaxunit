@@ -55,6 +55,7 @@ jobs:
       run: |
         mkdir data\data
         mkdir logs
+        Set-WinSystemLocale ${{ inputs.locale }}
       
     - name: create test-config
       uses: DamianReeves/write-file-action@master
@@ -107,10 +108,7 @@ jobs:
     - name: Test
       run: |
         Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081"
-        curl http://localhost:8081
         Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log'
-        Get-Process ibsrv, 1cv8c | Format-List *
-        curl http://localhost:8081
       timeout-minutes: 10
    
     - name: view output
@@ -123,14 +121,7 @@ jobs:
       with:
         name: Tests report. Windows ${{ inputs.v8_version }} ${{ inputs.locale }}
         path: reports\*.*
-        
-    - name: upload-logs
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: Tech logs. Windows ${{ inputs.v8_version }} ${{ inputs.locale }}
-        path: data\*
-        
+            
     - name: Publish Test Report
       uses: mikepenz/action-junit-report@v3
       if: always()
