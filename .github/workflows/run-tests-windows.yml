@@ -109,6 +109,8 @@ jobs:
         Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081"
         curl http://localhost:8081
         1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
+        Get-Process ibsrv, 1cv8c | Format-List *
+        curl http://localhost:8081
       timeout-minutes: 10
    
     - name: view output
@@ -127,7 +129,7 @@ jobs:
       if: always()
       with:
         name: Tech logs. Windows ${{ inputs.v8_version }} ${{ inputs.locale }}
-        path: logs\*.*
+        path: data\*
         
     - name: Publish Test Report
       uses: mikepenz/action-junit-report@v3
