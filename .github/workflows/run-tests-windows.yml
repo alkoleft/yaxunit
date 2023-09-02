@@ -46,7 +46,6 @@ jobs:
       with:
         type: onec
         onec_version: ${{ inputs.v8_version }}
-        cache: false
       env: 
         ONEC_USERNAME: ${{ secrets.ONEC_USERNAME }}
         ONEC_PASSWORD: ${{ secrets.ONEC_PASSWORD }}
@@ -90,8 +89,6 @@ jobs:
         ibcmd.exe infobase config extension update --data=data --name=tests --safe-mode=no --unsafe-action-protection=no
       timeout-minutes: 5
 
-    - run: echo (Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081" -WorkingDirectory "${{github.workspace}}" -PassThru -RedirectStandardOutput "${{github.workspace}}\logs\ibsrv-output.log" -RedirectStandardError "${{github.workspace}}\logs\ibsrv-error.log")
-   
     - name: create test-config
       uses: DamianReeves/write-file-action@master
       with:
@@ -107,26 +104,14 @@ jobs:
             }
           }
     
-    - name: server answer
-      if: always()
-      run: curl http://localhost:8081
-      continue-on-error: true
-      
-    - name: run tests
-      run: 1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
-      timeout-minutes: 5
-      env:
-        LANG: "${{ inputs.locale }}.UTF-8"
-      
-    - if: always()
-      run: Get-Process ibsrv, 1cv8c | Format-List *
-      continue-on-error: true
-      
-    - name: server answer2
-      if: always()
-      run: curl http://localhost:8081
-      continue-on-error: true
-      
+    - name: Test
+      uses: BerniWittmann/background-server-action@v1
+      with:
+        start: ibsrv.exe --data=data  --port=8081 --log-data="${{github.workspace}}\logs"
+        wait-on: 'http://localhost:8081'
+        command: 1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
+      timeout-minutes: 10
+   
     - name: view output
       if: always()
       run: type logs\1cv8c-output.log
