@@ -106,7 +106,7 @@ jobs:
     
     - name: Test
       run: |
-        ibsrv.exe --data=data  --port=8081 --log-data="${{github.workspace}}\logs"
+        Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081"
         curl http://localhost:8081
         1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
       timeout-minutes: 10
