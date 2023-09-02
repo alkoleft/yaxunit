@@ -105,11 +105,10 @@ jobs:
           }
     
     - name: Test
-      uses: BerniWittmann/background-server-action@v1
-      with:
-        start: ibsrv.exe --data=data  --port=8081 --log-data="${{github.workspace}}\logs"
-        wait-on: 'http://localhost:8081'
-        command: 1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
+      run: |
+        ibsrv.exe --data=data  --port=8081 --log-data="${{github.workspace}}\logs"
+        curl http://localhost:8081
+        1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
       timeout-minutes: 10
    
     - name: view output
