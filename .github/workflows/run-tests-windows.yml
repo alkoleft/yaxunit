@@ -108,7 +108,7 @@ jobs:
       run: |
         Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081"
         curl http://localhost:8081
-        1cv8c.exe /WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log
+        Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8081" /C"RunUnitTests=unit.json" /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log'
         Get-Process ibsrv, 1cv8c | Format-List *
         curl http://localhost:8081
       timeout-minutes: 10
