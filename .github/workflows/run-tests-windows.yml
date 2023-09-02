@@ -11,7 +11,7 @@ on:
       locale:
         type: string
         required: false
-        default: ru_RU
+        default: ru-RU
 
       artifact_name:
         type: string
@@ -55,7 +55,12 @@ jobs:
       run: |
         mkdir data\data
         mkdir logs
-        Set-WinSystemLocale ${{ inputs.locale }}
+        Set-WinSystemLocale ru-RU
+        Set-Culture ru-RU
+        Set-WinSystemLocale -SystemLocale ru-RU
+        Set-WinUILanguageOverride -Language ru-RU
+        Set-WinUserLanguageList ru-RU -Force
+        Set-WinHomeLocation -GeoId 203
       
     - name: create test-config
       uses: DamianReeves/write-file-action@master
