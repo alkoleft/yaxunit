@@ -50,11 +50,11 @@ jobs:
         mkdir reports -p
 
     - name: install platform
-      uses: IT-Medved/onec-setup-build-env-action@develop
+      uses: IT-Medved/onec-setup-build-env-action@feature/installerCache
       with:
         type: onec
         onec_version: ${{ inputs.v8_version }}
-        cache: false
+        cache_distr: true
       env: 
         ONEC_USERNAME: ${{ secrets.ONEC_USERNAME }}
         ONEC_PASSWORD: ${{ secrets.ONEC_PASSWORD }}
