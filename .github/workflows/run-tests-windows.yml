@@ -52,6 +52,7 @@ jobs:
       timeout-minutes: 10
 
     - name: prepare
+      shell: powershell
       run: |
         mkdir data\data
         mkdir logs
