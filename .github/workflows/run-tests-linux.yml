@@ -50,7 +50,7 @@ jobs:
         mkdir reports -p
 
     - name: install platform
-      uses: IT-Medved/onec-setup-build-env-action@feature/installerCache
+      uses: IT-Medved/onec-setup-build-env-action@develop
       with:
         type: onec
         onec_version: ${{ inputs.v8_version }}
