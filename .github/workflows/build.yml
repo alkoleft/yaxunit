@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: install EDT
-      uses: IT-Medved/onec-setup-build-env-action@develop
+      uses: IT-Medved/onec-setup-build-env-action@feature/installerCache
       with:
         type: edt
         edt_version: ${{ inputs.edt_version }}
@@ -31,7 +31,7 @@ jobs:
       timeout-minutes: 10
     
     - name: install Onec Platform
-      uses: IT-Medved/onec-setup-build-env-action@develop
+      uses: IT-Medved/onec-setup-build-env-action@feature/installerCache
       with:
         type: onec
         onec_version: ${{ inputs.v8_version }}
