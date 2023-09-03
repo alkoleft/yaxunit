@@ -56,12 +56,6 @@ jobs:
       run: |
         mkdir data\data
         mkdir logs
-        Set-WinSystemLocale ru-RU
-        Set-Culture ru-RU
-        Set-WinSystemLocale -SystemLocale ru-RU
-        Set-WinUILanguageOverride -Language ru-RU
-        Set-WinUserLanguageList ru-RU -Force
-        Set-WinHomeLocation -GeoId 203
       
     - name: create test-config
       uses: DamianReeves/write-file-action@master
@@ -113,6 +107,13 @@ jobs:
     
     - name: Test
       run: |
+        Set-WinSystemLocale ru-RU
+        Set-Culture en-US
+        Set-WinSystemLocale -SystemLocale ru-RU
+        Set-WinUILanguageOverride -Language ru-RU
+        Set-WinUserLanguageList ru-RU -Force
+        Set-WinHomeLocation -GeoId 203
+
         Start-Process ibsrv.exe -ArgumentList "--data=data  --port=8081"
         Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8081" /C"RunUnitTests=unit.json" /L ru /VL ru_RU /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out logs\1cv8c-output.log'
       timeout-minutes: 10
