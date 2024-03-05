@@ -2,18 +2,88 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bia-technologies.github.io/yaxunit/blog</id>
     <title>YAx Unit Blog</title>
-    <updated>2024-01-15T00:00:00.000Z</updated>
+    <updated>2024-02-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bia-technologies.github.io/yaxunit/blog"/>
     <subtitle>YAx Unit Blog</subtitle>
     <icon>https://bia-technologies.github.io/yaxunit/img/logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[YaxUnit. Версия 24.02]]></title>
+        <id>https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release</id>
+        <link href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release"/>
+        <updated>2024-02-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Release 24.02]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/yaxunit/releases/tag/24.02" target="_blank" rel="noopener noreferrer">Release 24.02</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
+<ul>
+<li>Добавлен метод генерации случайного номера телефона <a href="https://github.com/bia-technologies/yaxunit/issues/175" target="_blank" rel="noopener noreferrer">#175</a></li>
+<li>Добавлен метод для получения случайного значения предопределенных данных <a href="https://github.com/bia-technologies/yaxunit/issues/246" target="_blank" rel="noopener noreferrer">#246</a></li>
+<li>Внесен метод генерации случайного значения по описанию типов в публичный интерфейс. <a href="https://github.com/bia-technologies/yaxunit/issues/250" target="_blank" rel="noopener noreferrer">#250</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="утверждения">Утверждения<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F" class="hash-link" aria-label="Direct link to Утверждения" title="Direct link to Утверждения">​</a></h3>
+<ul>
+<li>Метод утверждений ИмеетДлину не выводит в тексте ошибки фактическую длину (размер) <a href="https://github.com/bia-technologies/yaxunit/issues/203" target="_blank" rel="noopener noreferrer">#203</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="мокирование">Мокирование<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D0%BC%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" class="hash-link" aria-label="Direct link to Мокирование" title="Direct link to Мокирование">​</a></h3>
+<ul>
+<li>Добавить методы для мокирования ADO.RecordSet <a href="https://github.com/bia-technologies/yaxunit/issues/222" target="_blank" rel="noopener noreferrer">#222</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="запуск">Запуск<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA" class="hash-link" aria-label="Direct link to Запуск" title="Direct link to Запуск">​</a></h3>
+<ul>
+<li>Добавить запуск выделенных тестов в обработке запуска тестов по Ctrl+Enter <a href="https://github.com/bia-technologies/yaxunit/issues/251" target="_blank" rel="noopener noreferrer">#251</a>. Спасибо <a href="https://github.com/1cgh" target="_blank" rel="noopener noreferrer">@1cgh</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="отчет-о-тестировании">Отчет о тестировании<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D0%BE%D1%82%D1%87%D0%B5%D1%82-%D0%BE-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Отчет о тестировании" title="Direct link to Отчет о тестировании">​</a></h3>
+<ul>
+<li>Отчет в формате allure <a href="https://github.com/bia-technologies/yaxunit/issues/255" target="_blank" rel="noopener noreferrer">#255</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="исправленные-ошибки">Исправленные ошибки<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/engine-release#%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8" class="hash-link" aria-label="Direct link to Исправленные ошибки" title="Direct link to Исправленные ошибки">​</a></h2>
+<ul>
+<li>Если в ИсполняемыеСценарии выпадает ошибка, то тесты просто не определяются и ошибка нигде не отображается <a href="https://github.com/bia-technologies/yaxunit/issues/198" target="_blank" rel="noopener noreferrer">#198</a></li>
+<li>Использование метода ЮТест.Пропустить влечет запись кода 1 (ошибка) в файл с результатом проверки <a href="https://github.com/bia-technologies/yaxunit/issues/216" target="_blank" rel="noopener noreferrer">#216</a></li>
+<li>Добавить DataProcessor.ЮТHTTPServiceRequest в подсистему ЮТМокирование <a href="https://github.com/bia-technologies/yaxunit/issues/247" target="_blank" rel="noopener noreferrer">#247</a></li>
+<li>Метод в ВТранзакции() на уровне теста не работает корректно. Код не выполняется в транзакции. <a href="https://github.com/bia-technologies/yaxunit/issues/253" target="_blank" rel="noopener noreferrer">#253</a></li>
+<li>Не корректно работает цепочка загрузок из макета <a href="https://github.com/bia-technologies/yaxunit/issues/266" target="_blank" rel="noopener noreferrer">#266</a></li>
+</ul>]]></content>
+        <author>
+            <name>alkoleft</name>
+            <uri>https://github.com/alkoleft</uri>
+        </author>
+        <category label="releases" term="releases"/>
+        <category label="yaxunit" term="yaxunit"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[EDT Test runner. Версия 24.02]]></title>
+        <id>https://bia-technologies.github.io/yaxunit/blog/2024/02/29/plugin-release</id>
+        <link href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/plugin-release"/>
+        <updated>2024-02-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Release 24.02]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/edt-test-runner/releases/tag/24.02" target="_blank" rel="noopener noreferrer">Release 24.02</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/plugin-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
+<ul>
+<li>Реализована генерация тестовых модулей и тестов</li>
+<li>Реализована генерация моков для методов конфигурации</li>
+<li>Небольшие доработки UI</li>
+</ul>
+<p>Подробнее смотрите в <a href="https://github.com/bia-technologies/edt-test-runner/blob/24.02/docs/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8.md#%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%D0%B8" target="_blank" rel="noopener noreferrer">документации</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="исправлены-ошибки">Исправлены ошибки<a href="https://bia-technologies.github.io/yaxunit/blog/2024/02/29/plugin-release#%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D1%8B-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8" class="hash-link" aria-label="Direct link to Исправлены ошибки" title="Direct link to Исправлены ошибки">​</a></h2>
+<ul>
+<li>Исправлена ошибка "Не удалось найти тестовый метод"</li>
+</ul>]]></content>
+        <author>
+            <name>alkoleft</name>
+            <uri>https://github.com/alkoleft</uri>
+        </author>
+        <category label="releases" term="releases"/>
+        <category label="plugin" term="plugin"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[YaxUnit. Версия 24.01]]></title>
         <id>https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release</id>
         <link href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release"/>
         <updated>2024-01-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Release 24.01]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/edt-test-runner/releases/tag/24.01" target="_blank" rel="noopener noreferrer">Release 24.01</a></p>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/yaxunit/releases/tag/24.01" target="_blank" rel="noopener noreferrer">Release 24.01</a></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
@@ -84,7 +154,7 @@
         <link href="https://bia-technologies.github.io/yaxunit/blog/2023/09/05/engine-release"/>
         <updated>2023-09-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Release 23.08]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/edt-test-runner/releases/tag/23.08" target="_blank" rel="noopener noreferrer">Release 23.08</a></p>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/yaxunit/releases/tag/23.08" target="_blank" rel="noopener noreferrer">Release 23.08</a></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2023/09/05/engine-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2023/09/05/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
@@ -127,7 +197,7 @@
         <link href="https://bia-technologies.github.io/yaxunit/blog/2023/07/31/engine-release"/>
         <updated>2023-07-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Release 23.07]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/edt-test-runner/releases/tag/23.07" target="_blank" rel="noopener noreferrer">Release 23.07</a></p>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/yaxunit/releases/tag/23.07" target="_blank" rel="noopener noreferrer">Release 23.07</a></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2023/07/31/engine-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2023/07/31/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
@@ -167,7 +237,7 @@
         <link href="https://bia-technologies.github.io/yaxunit/blog/2023/05/25/engine-release"/>
         <updated>2023-05-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Release 23.05]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/edt-test-runner/releases/tag/23.05" target="_blank" rel="noopener noreferrer">Release 23.05</a></p>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/yaxunit/releases/tag/23.05" target="_blank" rel="noopener noreferrer">Release 23.05</a></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2023/05/25/engine-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2023/05/25/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
@@ -228,7 +298,7 @@
         <link href="https://bia-technologies.github.io/yaxunit/blog/2023/04/29/02-engine-release"/>
         <updated>2023-04-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Release 23.04]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/edt-test-runner/releases/tag/23.04" target="_blank" rel="noopener noreferrer">Release 23.04</a></p>
+        <content type="html"><![CDATA[<p><a href="https://github.com/bia-technologies/yaxunit/releases/tag/23.04" target="_blank" rel="noopener noreferrer">Release 23.04</a></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="новое-в-версии">Новое в версии<a href="https://bia-technologies.github.io/yaxunit/blog/2023/04/29/02-engine-release#%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B2-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8" class="hash-link" aria-label="Direct link to Новое в версии" title="Direct link to Новое в версии">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2023/04/29/02-engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
