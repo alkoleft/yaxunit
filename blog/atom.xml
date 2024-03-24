@@ -129,7 +129,7 @@
 <ul>
 <li>Не работает мокирование методов обработки, при обучении через менеджер <a href="https://github.com/bia-technologies/yaxunit/issues/217" target="_blank" rel="noopener noreferrer">#217</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные-1">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-1" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-�данные-1">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-1" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
 <li>Ошибка генерации случайного отрицательного числа без параметров <a href="https://github.com/bia-technologies/yaxunit/issues/211" target="_blank" rel="noopener noreferrer">#211</a></li>
 </ul>
