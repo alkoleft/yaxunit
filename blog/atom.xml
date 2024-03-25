@@ -125,11 +125,11 @@
 <li>Добавить возможность внутри тестов создавать внешнюю обработку по имени <a href="https://github.com/bia-technologies/yaxunit/issues/193" target="_blank" rel="noopener noreferrer">#193</a> Спасибо <a href="https://github.com/SeiOkami" target="_blank" rel="noopener noreferrer">@SeiOkami</a></li>
 <li>Ошибка запуска тестов из файла настроек при запрещенных синхронных вызовах <a href="https://github.com/bia-technologies/yaxunit/issues/188" target="_blank" rel="noopener noreferrer">#188</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="мокирование-1">Мокирование<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D0%BC%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-1" class="hash-link" aria-label="Direct link to Мокирование" title="Direct link to Мокирование">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="мокирование-1">Мокирование<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D0%BC%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-1" class="hash-link" aria-label="Direct link to Мокирование" title="Direct link to Мок�ирование">​</a></h3>
 <ul>
 <li>Не работает мокирование методов обработки, при обучении через менеджер <a href="https://github.com/bia-technologies/yaxunit/issues/217" target="_blank" rel="noopener noreferrer">#217</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-�данные-1">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-1" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="тестовые-данные-1">Тестовые данные<a href="https://bia-technologies.github.io/yaxunit/blog/2024/01/15/engine-release#%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-1" class="hash-link" aria-label="Direct link to Тестовые данные" title="Direct link to Тестовые данные">​</a></h3>
 <ul>
 <li>Ошибка генерации случайного отрицательного числа без параметров <a href="https://github.com/bia-technologies/yaxunit/issues/211" target="_blank" rel="noopener noreferrer">#211</a></li>
 </ul>
@@ -178,7 +178,7 @@
 <li>Github CI, реализовано автотестирование движка под windows и linux <a href="https://github.com/bia-technologies/yaxunit/pull/142" target="_blank" rel="noopener noreferrer">#142</a></li>
 <li>Вывод лога выполнения тестирования в консоль <a href="https://github.com/bia-technologies/yaxunit/issues/144" target="_blank" rel="noopener noreferrer">#144</a></li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="исправленные-ошибки">Исправленные ошибки<a href="https://bia-technologies.github.io/yaxunit/blog/2023/09/05/engine-release#%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8" class="hash-link" aria-label="Direct link to Исправленные ошибки" title="Direct link to Исправленные ошибки">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="исправленные-ошибки">Исправленные ошибки<a href="https://bia-technologies.github.io/yaxunit/blog/2023/09/05/engine-release#%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8" class="hash-link" aria-label="Direct link to Исправленные ошибки" title="Direct link to Исправленн�ые ошибки">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="прочее-1">Прочее<a href="https://bia-technologies.github.io/yaxunit/blog/2023/09/05/engine-release#%D0%BF%D1%80%D0%BE%D1%87%D0%B5%D0%B5-1" class="hash-link" aria-label="Direct link to Прочее" title="Direct link to Прочее">​</a></h3>
 <ul>
 <li>Подтягиваются глобальные общие модули <a href="https://github.com/bia-technologies/yaxunit/pull/148" target="_blank" rel="noopener noreferrer">#148</a>. Спасибо <a href="https://github.com/SeiOkami" target="_blank" rel="noopener noreferrer">@SeiOkami</a></li>
