@@ -1,6 +1,6 @@
 name: Анализ в SonarQube (pull-request)
 
-on: [pull_request]
+on: [pull_request_target]
 
 jobs:
   SonarScanner:
