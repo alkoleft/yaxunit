@@ -3,7 +3,7 @@ name: Code Review GPT
 on:
   pull_request:
     types: [opened, reopened, ready_for_review]
-  push: 
+  issue_comment:
   workflow_dispatch:
 
 jobs:
