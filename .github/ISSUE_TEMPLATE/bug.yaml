@@ -30,7 +30,27 @@ body:
   - type: input
     attributes:
       label: Версия 1С:Предприятие
+  
+  - type: dropdown
+    id: run-mode
+    attributes:
+      label: Режим запуска 1С:Предприятие
+      multiple: true
+      options:
+        - Управляемое приложение. Тонкий клиент
+        - Управляемое приложение. Толстый клиент
+        - Обычное приложение
+        - Web-клиент
 
+  - type: dropdown
+    id: base-mode
+    attributes:
+      label: Тип информационной базы
+      multiple: true
+      options:
+        - Клиент-серверная
+        - Файловая
+        
   - type: dropdown
     id: operating-systems
     attributes:
