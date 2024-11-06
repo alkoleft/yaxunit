@@ -11,6 +11,12 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: page
+    attributes:
+      label: Страница/раздел
+      description: Ссылка на страницу или наименование раздела
+    
   - type: textarea
     id: problems
     attributes:
@@ -20,20 +26,11 @@ body:
         * Примеры неправильного использования
         * Прочие, желательно реальные, примеры проблем связанных с документацией
 
-  - type: input
-    id: page
-    attributes:
-      label: Страница/раздел
-      description: Ссылка на страницу или наименование раздела
-    
   - type: textarea
     id: tasks
     attributes:
-      label: Доработки
+      label: Перечень необходимых доработок
       value: |
-        ```[tasklist]
-        ## (Какие доработки необходимы)
         - [ ] Описать то-то
         - [ ] Исправить опечатку там то
         - [ ] Дополнить примерами такой то раздел
-        ```
