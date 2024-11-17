@@ -67,7 +67,8 @@ jobs:
         type: onec
         onec_version: ${{ inputs.v8_version }}
         cache: ${{runner.os == 'Windows'}}
-      env: 
+        cache_distr: ${{runner.os == 'Linux'}}
+      env:
         ONEC_USERNAME: ${{ secrets.ONEC_USERNAME }}
         ONEC_PASSWORD: ${{ secrets.ONEC_PASSWORD }}
       timeout-minutes: 10
@@ -75,26 +76,26 @@ jobs:
     - name: Создание информационной базы
       shell: bash
       run: |
-        ibcmd infobase create --db-path=file-db --load=binary/configuration.cf --apply --force
+        ibcmd infobase create --db-path=file-db --restore=binary/dump.dt
       timeout-minutes: 5
 
-    - name: Загрузка расширения c тестами
-      uses: 1CDevFlow/workflows/actions/load-extension@main
-      with:
-        name: tests
-        path: binary/tests.cfe
+    # - name: Загрузка расширения c тестами
+    #   uses: 1CDevFlow/workflows/actions/load-extension@main
+    #   with:
+    #     name: tests
+    #     path: binary/tests.cfe
 
-    - name: Загрузка расширения c дымовыми тестами
-      uses: 1CDevFlow/workflows/actions/load-extension@main
-      with:
-        name: Smoke
-        path: binary/smoke.cfe
+    # - name: Загрузка расширения c дымовыми тестами
+    #   uses: 1CDevFlow/workflows/actions/load-extension@main
+    #   with:
+    #     name: Smoke
+    #     path: binary/smoke.cfe
 
-    - name: Загрузка расширения YAxUnit
-      uses: 1CDevFlow/workflows/actions/load-extension@main
-      with:
-        name: YAXUNIT
-        path: binary/yaxunit.cfe
+    # - name: Загрузка расширения YAxUnit
+    #   uses: 1CDevFlow/workflows/actions/load-extension@main
+    #   with:
+    #     name: YAXUNIT
+    #     path: binary/yaxunit.cfe
 
     - name: Создание файла конфигурации тестирования
       uses: DamianReeves/write-file-action@master
@@ -118,6 +119,7 @@ jobs:
         run: |
           ibsrv --db-path=file-db --daemon
           1cv8c /WS "http://localhost:8314" /C"RunUnitTests=yaxunit-config.json" /L ${{ steps.short_locale.outputs.substring }} /VL ${{ inputs.locale }} /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
+        options: -screen 0 1024x768x24
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
       timeout-minutes: 10

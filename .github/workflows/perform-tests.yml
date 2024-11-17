@@ -39,14 +39,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version:
-          - 8.3.21.1895
-        locale:
-          - ru_RU
-          - en_US
-        os:
-          - windows-latest
-          - ubuntu-latest
+        include:
+          - version: 8.3.21.1895
+            locale: ru_RU
+            os: windows-latest
+
+          - version: 8.3.21.1895
+            locale: en_US
+            os: windows-latest
+
+          - version: 8.3.21.1895
+            locale: ru_RU
+            os: ubuntu-latest
+
+          - version: 8.3.14.2095
+            locale: ru_RU
+            os: windows-latest
+
+          - version: 8.3.24.1548
+            locale: en_US
+            os: ubuntu-latest
 
     uses: ./.github/workflows/step-run-tests.yml
     needs: build_artifacts

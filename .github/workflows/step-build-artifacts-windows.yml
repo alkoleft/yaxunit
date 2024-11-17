@@ -57,31 +57,47 @@ jobs:
       timeout-minutes: 5
 
     - name: Импорт YAxUnit из исходников
-      run: ibcmd infobase config import --db-path=file-db --extension=YAXUNIT export\yaxunit
+      run: |
+        ibcmd infobase config import --db-path=file-db --extension=YAXUNIT export\yaxunit
+        ibcmd infobase config apply --db-path=file-db --extension=YAXUNIT --force
       timeout-minutes: 5
 
     - name: Импорт тестов из исходников
-      run: ibcmd infobase config import --db-path=file-db --extension=tests export\tests
+      run: |
+        ibcmd infobase config import --db-path=file-db --extension=tests export\tests
+        ibcmd infobase config apply --db-path=file-db --extension=tests --force
       timeout-minutes: 5
 
     - name: Импорт дымовых тестов из исходников
-      run: ibcmd infobase config import --db-path=file-db --extension=Smoke export\smoke
+      run: |
+        ibcmd infobase config import --db-path=file-db --extension=Smoke export\smoke
+        ibcmd infobase config apply --db-path=file-db --extension=Smoke --force
       timeout-minutes: 5
 
-    - name: Сохрание расширения YAxUnit
-      run: ibcmd infobase config save --db-path=file-db --extension=YAXUNIT binary\yaxunit.cfe
-      timeout-minutes: 5
+    # - name: Сохрание расширения YAxUnit
+    #   run: ibcmd infobase config save --db-path=file-db --extension=YAXUNIT binary\yaxunit.cfe
+    #   timeout-minutes: 5
       
-    - name: Сохрание расширения с тестами
-      run: ibcmd infobase config save --db-path=file-db --extension=tests binary\tests.cfe
-      timeout-minutes: 5
+    # - name: Сохрание расширения с тестами
+    #   run: ibcmd infobase config save --db-path=file-db --extension=tests binary\tests.cfe
+    #   timeout-minutes: 5
 
-    - name: Сохрание расширения с дымовыми тестами
-      run: ibcmd infobase config save --db-path=file-db --extension=Smoke binary\smoke.cfe
-      timeout-minutes: 5
+    # - name: Сохрание расширения с дымовыми тестами
+    #   run: ibcmd infobase config save --db-path=file-db --extension=Smoke binary\smoke.cfe
+    #   timeout-minutes: 5
 
-    - name: Сохрание тестовой конфигурации
-      run: ibcmd infobase config save --db-path=file-db binary\configuration.cf
+    # - name: Сохрание тестовой конфигурации
+    #   run: ibcmd infobase config save --db-path=file-db binary\configuration.cf
+    #   timeout-minutes: 5
+
+    - name: Снятие безопасного режима
+      run: |
+        ibcmd infobase config extension update --db-path=file-db --name=Smoke --safe-mode=no --unsafe-action-protection=no
+        ibcmd infobase config extension update --db-path=file-db --name=tests --safe-mode=no --unsafe-action-protection=no
+        ibcmd infobase config extension update --db-path=file-db --name=YAXUNIT --safe-mode=no --unsafe-action-protection=no
+
+    - name: Выгрузка информационной базы
+      run: ibcmd infobase dump --db-path=file-db binary\dump.dt
       timeout-minutes: 5
 
     - name: Публикация артефактов
